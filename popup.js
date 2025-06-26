@@ -5,7 +5,7 @@ const button3 = document.getElementById('grabBtn3');
 const button4 = document.getElementById('grabBtn4');
 const button5 = document.getElementById('grabBtn5');
 const button6 = document.getElementById('grabBtn6');
-
+const button7 = document.getElementById('grabBtn7');
 
 //Кнопка для Headless
 button.addEventListener('click', function() {
@@ -103,6 +103,7 @@ button4.addEventListener('click', function() {
   });
 
 
+  
 // Кнопка мозговых логов на открытие сессии
 button5.addEventListener('click', function() {
     extractUrlParams(([gameId, accId, gameDate, brainServer, dateOpenTable, openTrainerDate]) => {
@@ -144,11 +145,37 @@ button6.addEventListener('click', function() {
                 // Пример использования массива: создание новой вкладки с изменённым URL
                    chrome.tabs.create({
                 // url: `https://loggia.ecoinfra.io/?az=brains&ns=brain-platform&log=${dateGame}&q=node~eq~${brainServer}&q=component~eq~system&text=${accIdnumber}+${gameId}`
-                url: `https://loggia.ecoinfra.io/?ns=mga-platform&app=mgaimport%7Emgaerrimport&from=${newDateMinusFiveString}&to=${newDatePlusFiveString}&q=component~eq~system&text=${accIdnumber}`
+                url: `https://loggia.ecoinfra.io/?ns=mga-platform&app=mgaimport&from=${newDateMinusFiveString}&to=${newDatePlusFiveString}&q=component~eq~system&text=${accIdnumber}`
          });
                
                });
         });
+
+        
+// Кнопка логов ерроримпорта
+button7.addEventListener('click', function() {
+    extractUrlParams(([gameId, accId, gameDate, brainServer, dateOpenTable, openTrainerDate]) => {
+
+                const accIdnumber = Number(accId);
+                
+                const datePlusFive = new Date(openTrainerDate);
+                datePlusFive.setMinutes(datePlusFive.getMinutes() + 120);
+                const newDatePlusFiveString = datePlusFive.toISOString();
+                
+                const dateMinusFive = new Date(openTrainerDate);
+                dateMinusFive.setMinutes(dateMinusFive.getMinutes() - 5);
+                const newDateMinusFiveString = dateMinusFive.toISOString();
+
+                // Пример использования массива: создание новой вкладки с изменённым URL
+                   chrome.tabs.create({
+                // url: `https://loggia.ecoinfra.io/?az=brains&ns=brain-platform&log=${dateGame}&q=node~eq~${brainServer}&q=component~eq~system&text=${accIdnumber}+${gameId}`
+                url: `https://loggia.ecoinfra.io/?ns=mga-platform&app=mgaerrimport&from=${newDateMinusFiveString}&to=${newDatePlusFiveString}&q=component~eq~system&text=${accIdnumber}`
+         });
+               
+               });
+        });
+
+
 
     // Парсинг ссылки в ХИ
     function extractUrlParams(callback) {
