@@ -1,6 +1,7 @@
 body {
     text-align:center;
-    width:200px;
+    width: 400px;;
+    height:200px;
     background: white;
 }
 
@@ -16,4 +17,23 @@ button {
     margin-bottom: 12px;
 }
 
-`
+.main-content{
+    display: flex;
+    align-items: auto;
+    justify-content:center;
+}
+
+.create-line {
+  height: 200px;
+  border-left: 3px solid #32a1ce;
+}
+.trainer-buttons{
+   flex-basis: 180px; 
+}
+
+.brain-buttons{
+   flex-basis: 180px; 
+}
+.create-line{
+    margin: 20px;
+}
