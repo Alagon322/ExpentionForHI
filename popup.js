@@ -97,7 +97,7 @@ button4.addEventListener('click', function() {
 
         chrome.tabs.create({
                 // url: `https://loggia.ecoinfra.io/?az=brains&ns=brain-platform&log=${dateGame}&q=node~eq~${brainServer}&q=component~eq~system&text=${accIdnumber}+${gameId}`
-                url: `https://loggia.ecoinfra.io/?az=brains&ns=brain-platform&from=${newDateMinusFiveString}&to=${newDatePlusFiveString}&q=node~eq~${brainServer}&q=component~eq~system&text=${accIdnumber}+<opentable`
+                url: `https://loggia.ecoinfra.io/?az=brains&ns=brain-platform&from=${newDateMinusFiveString}&to=${newDatePlusFiveString}&q=node~eq~${brainServer}&q=component~eq~system&text=${accIdnumber}+<opentable&pinned-labels=node`
          });
     });
   });
@@ -120,7 +120,7 @@ button5.addEventListener('click', function() {
                 // Пример использования массива: создание новой вкладки с изменённым URL
                    chrome.tabs.create({
                 // url: `https://loggia.ecoinfra.io/?az=brains&ns=brain-platform&log=${dateGame}&q=node~eq~${brainServer}&q=component~eq~system&text=${accIdnumber}+${gameId}`
-                url: `https://loggia.ecoinfra.io/?az=brains&ns=brain-platform&from=${newDateMinusFiveString}&to=${newDatePlusFiveString}&q=component~eq~system&text=${accIdnumber}+<opentrainer`
+                url: `https://loggia.ecoinfra.io/?az=brains&ns=brain-platform&from=${newDateMinusFiveString}&to=${newDatePlusFiveString}&q=component~eq~system&text=${accIdnumber}+<opentrainer&pinned-labels=node`
          });
                
                });
